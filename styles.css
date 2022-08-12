@@ -1,3 +1,10 @@
+body {
+  background-image: url("palmas.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .input-group {
   flex-direction: column;
 }
@@ -7,8 +14,7 @@
   padding: 0px 18px 56px;
   margin: 68px auto;
   border: 3px solid rgb(0, 0, 0);
-  background-image: url("palmas.jpg");
-  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.285);
 }
 .city {
   font-size: 38px;
@@ -23,12 +29,20 @@
   position: relative;
   top: -20px;
 }
+ul {
+  list-style: none;
+  padding-top: 78px;
+  padding-left: 50%;
+}
 .current-dates {
   font-size: 15px;
-  padding-bottom: 121px;
+  padding-bottom: 115px;
   font-family: "Kiwi Maru", serif;
 }
-
+.humid-wind {
+  font-size: 15px;
+  font-family: "Kiwi Maru", serif;
+}
 div.col-2 {
   text-align: center;
   background-color: rgba(104, 237, 237, 0.626);

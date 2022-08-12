@@ -1,42 +1,83 @@
-let now = new Date();
-let date = document.querySelector(".date");
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-date.innerHTML = days[now.getDay()];
-
-let hours = document.querySelector(".time");
-let hour = now.getHours();
-let minute = now.getMinutes();
-hours.innerHTML = `${hour}:${minute}`;
-
-function cities(event) {
-  event.preventDefault();
-  let cityInput = document.querySelector("#search-city-input");
-  let cityName = document.querySelector("div.city");
-  if (cityInput.value) {
-    cityName.innerHTML = cityInput.value;
+function updateDate(date) {
+  let hour = date.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
   }
-}
-let button = document.querySelector("#search-city");
-button.addEventListener("submit", cities);
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  console.log(minutes);
 
-function changeCelcius() {
-  let cLink = document.querySelector(".temperature");
-  cLink.innerHTML = "37";
-}
-let cDegree = document.querySelector("#celciusDegree");
-cDegree.addEventListener("click", changeCelcius);
+  let dayChange = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[dayChange];
 
-function changeFahrenheit() {
-  let fLink = document.querySelector(".temperature");
-  fLink.innerHTML = "98";
+  return `${day} ${hour}:${minutes}`;
 }
-let fDegree = document.querySelector("#fahrenheitDegree");
-fDegree.addEventListener("click", changeFahrenheit);
+
+let hours = document.querySelector(".date-time");
+let nowTime = new Date();
+hours.innerHTML = updateDate(nowTime);
+
+function showTemperature(response) {
+  let temperature = Math.round(response.data.main.temp);
+  console.log(temperature);
+  let fahrenheit = document.querySelector("#temperature");
+  fahrenheit.innerHTML = temperature;
+
+  let cityName = document.querySelector("#city");
+  let cityOutput = response.data.name;
+  cityName.innerHTML = cityOutput;
+
+  let humidity = response.data.main.humidity;
+  let levelHumidity = document.querySelector("#humidity");
+  levelHumidity.innerHTML = humidity;
+
+  let windy = Math.round(response.data.wind.speed);
+  let levelWind = document.querySelector("#wind");
+  levelWind.innerHTML = windy;
+}
+
+function cities(city) {
+  let apiKey = "dca6cc88ddd104c61405d706452d9719";
+  let units = "imperial";
+  let cityUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(cityUrl).then(showTemperature);
+}
+
+function searchCity(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#search-city-input").value;
+  cities(cityInput);
+}
+
+function showPosition(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiKey = "dca6cc88ddd104c61405d706452d9719";
+  let units = "imperial";
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}`;
+  axios.get(url).then(showTemperature);
+}
+
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(showPosition);
+}
+
+let cityInput = document.querySelector("#search-city");
+cityInput.addEventListener("submit", searchCity);
+
+let currentLocationButton = document.querySelector("#current-location");
+currentLocationButton.addEventListener("click", getCurrentLocation);
+
+cities("Ceres");
