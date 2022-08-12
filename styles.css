@@ -1,0 +1,44 @@
+.input-group {
+  flex-direction: column;
+}
+.container {
+  border-radius: 10px;
+  width: 800px;
+  padding: 0px 18px 56px;
+  margin: 68px auto;
+  border: 3px solid rgb(0, 0, 0);
+  background-image: url("palmas.jpg");
+  background-size: cover;
+}
+.city {
+  font-size: 38px;
+  padding-top: 20px;
+  font-family: "Rampart One", cursive;
+}
+.temperature {
+  font-size: 45px;
+  font-family: "Kiwi Maru", serif;
+}
+.degrees {
+  position: relative;
+  top: -20px;
+}
+.current-dates {
+  font-size: 15px;
+  padding-bottom: 121px;
+  font-family: "Kiwi Maru", serif;
+}
+
+div.col-2 {
+  text-align: center;
+  background-color: rgba(104, 237, 237, 0.626);
+}
+div.days {
+  font-family: "Kiwi Maru", serif;
+}
+div.icon {
+  font-family: none;
+}
+#search-city-input {
+  width: 80%;
+}
