@@ -12,7 +12,7 @@ body {
   border-radius: 10px;
   width: 800px;
   padding: 0px 18px 56px;
-  margin: 68px auto;
+  margin: 18px auto;
   border: 3px solid rgb(0, 0, 0);
   background-color: rgba(255, 255, 255, 0.285);
 }
@@ -55,4 +55,10 @@ div.icon {
 }
 #search-city-input {
   width: 80%;
+}
+.open-source {
+  text-align: center;
+}
+.link {
+  text-decoration: none;
 }
