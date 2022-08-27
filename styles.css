@@ -1,64 +1,101 @@
-body {
-  background-image: url("palmas.jpg");
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+html {
+  min-height: 100%;
+  position: relative;
 }
-.input-group {
-  flex-direction: column;
+body {
+  background: linear-gradient(
+    179.2deg,
+    rgb(147, 162, 163) 0%,
+    rgb(88, 151, 223) 29.7%,
+    rgb(99, 95, 221) 63.4%,
+    rgba(114, 62, 154, 0.808) 100.1%
+  );
+  height: 100%;
+  width: 100%;
+  color: rgb(247, 242, 242);
 }
 .container {
+  border-radius: 12px;
+  margin-top: 50px;
+}
+.input-group {
+  margin-left: -6px;
+  padding: 20px;
   border-radius: 10px;
-  width: 800px;
-  padding: 0px 18px 56px;
-  margin: 18px auto;
-  border: 3px solid rgb(0, 0, 0);
-  background-color: rgba(255, 255, 255, 0.285);
+  background: rgba(204, 194, 194, 0.341);
+  box-shadow: 3px 3px rgba(39, 39, 44, 0.2);
+  flex-direction: column;
+}
+.location {
+  text-align: end;
+}
+#search-city {
+  margin-top: 5px;
+}
+#search-city-input {
+  display: block;
+  line-height: 1;
+  color: #212529;
+  border: 1px solid #ced4da;
+  width: 100%;
+}
+#city-search {
+  width: 100%;
+}
+#weekdays {
+  background: rgba(204, 194, 194, 0.341);
+  padding: 30px;
+  border-radius: 12px;
+  width: 100%;
+  line-height: 5;
+  margin: 25px 0px 0px;
+}
+#city-info-wrap {
+  margin-top: 25px;
+  background: rgba(204, 194, 194, 0.341);
+  border-radius: 12px;
 }
 .city {
-  font-size: 38px;
-  padding-top: 20px;
-  font-family: "Rampart One", cursive;
+  font-size: 45px;
+  padding-top: 10px;
+  font-family: "Kiwi Maru", serif;
+}
+.current-icon {
+  font-size: 90px;
+}
+.description {
+  font-size: 15px;
 }
 .temperature {
-  font-size: 45px;
+  font-size: 95px;
   font-family: "Kiwi Maru", serif;
+  padding-left: 55px;
 }
 .degrees {
   position: relative;
-  top: -20px;
+  top: -50px;
 }
 ul {
-  list-style: none;
-  padding-top: 78px;
-  padding-left: 50%;
+  padding: 0;
+  list-style-type: none;
 }
 .current-dates {
   font-size: 15px;
-  padding-bottom: 115px;
   font-family: "Kiwi Maru", serif;
 }
+
 .humid-wind {
   font-size: 15px;
   font-family: "Kiwi Maru", serif;
+  padding-top: 22px;
 }
 div.col-2 {
   text-align: center;
-  background-color: rgba(104, 237, 237, 0.626);
 }
 div.days {
   font-family: "Kiwi Maru", serif;
 }
 div.icon {
   font-family: none;
-}
-#search-city-input {
-  width: 80%;
-}
-.open-source {
-  text-align: center;
-}
-.link {
-  text-decoration: none;
+  font-size: 35px;
 }
