@@ -18,95 +18,104 @@
       href="https://fonts.googleapis.com/css2?family=Henny+Penny&family=Kiwi+Maru:wght@300;400;500&family=Rampart+One&family=Rubik+Wet+Paint&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/e7fc30f2d1.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <link rel="stylesheet" href="styles.css" />
   <body>
     <div class="container">
-      <div class="input-group mb-3 pt-5">
+      <div class="input-group mt-2">
         <form id="search-city">
           <div class="row">
-            <div class="col-6">
+            <div class="col-7">
               <input
-                type="text"
+                class="form-control input-lg"
+                type="search"
                 placeholder="Search a City"
                 autocomplete="off"
                 id="search-city-input"
               />
             </div>
             <div class="col-3">
-              <input
+              <button
                 type="submit"
                 value="Check Now"
                 class="btn btn-info"
                 id="city-submit"
-              />
+              >
+                <i class="fa fa-search"></i>
+              </button>
             </div>
-            <div class="col-3">
-              <button class="btn btn-warning" id="current-location">
-                Current Location
+            <div class="col-2 location">
+              <button class="btn btn-light" id="current-location" type="sumbit">
+                <i class="fa-solid fa-location-dot"></i>
               </button>
             </div>
           </div>
         </form>
-        <div class="row">
-          <div class="col-6">
-            <div class="city" id="city">Ceres</div>
-            <div class="forcast">
-              <span class="temperature" id="temperature">86</span>
-              <span class="degrees"> ℉ </span>
-            </div>
-            <div class="current-dates">
-              <span class="date-time"></span>
-            </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md" id="city-info-wrap">
+          <div class="city" id="city">Ceres</div>
+          <div class="current-dates">
+            <span class="date-time"></span>
           </div>
-          <div class="col-6">
+          <div class="description">Sunny</div>
+          <div id="forecast">
+            <span class="current-icon">☀️ </span>
+            <span class="temperature" id="temperature"> </span>
+            <span class="degrees"> ℉ | ℃</span>
+          </div>
+          <div>
             <ul class="humid-wind">
               <li>Humidity: <span id="humidity"> </span>%</li>
               <li>Wind: <span id="wind"></span> km/h</li>
             </ul>
           </div>
         </div>
+        <div class="col-md">
+          <div class="row" id="weekdays">
+            <div class="col-2 days" id="first-day">
+              SAT
+              <div class="icon">☀️</div>
+              <div class="days">98°</div>
+            </div>
+            <div class="col-2 days" id="second-day">
+              SUN
+              <div class="icon">☀️</div>
+              <div class="days">100°</div>
+            </div>
+            <div class="col-2 days" id="third-day">
+              MON
+              <div class="icon">☀️</div>
+              <div class="days">99°</div>
+            </div>
+            <div class="col-2 days" id="fourth-day">
+              TUE
+              <div class="icon">☀️</div>
+              <div class="days">96°</div>
+            </div>
+            <div class="col-2 days" id="fifth-day">
+              WED
+              <div class="icon">☀️</div>
+              <div class="days">96°</div>
+            </div>
+            <div class="col-2 days" id="sixth-day">
+              THR
+              <div class="icon">☀️</div>
+              <div class="days">100°</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <hr />
-      <div class="row row-cols-4">
-        <div class="col-2 days">
-          SAT
-          <div class="icon">☀️</div>
-          <div class="days">98°</div>
-        </div>
-        <div class="col-2 days">
-          SUN
-          <div class="icon">☀️</div>
-          <div class="days">100°</div>
-        </div>
-        <div class="col-2 days">
-          MON
-          <div class="icon">☀️</div>
-          <div class="days">99°</div>
-        </div>
-        <div class="col-2 days">
-          TUE
-          <div class="icon">☀️</div>
-          <div class="days">96°</div>
-        </div>
-        <div class="col-2 days">
-          WED
-          <div class="icon">☀️</div>
-          <div class="days">96°</div>
-        </div>
-        <div class="col-2 days">
-          THR
-          <div class="icon">☀️</div>
-          <div class="days">100°</div>
-        </div>
-      </div>
+      <h6>
+        <a href="https://github.com/Lua8/weather-app">Open-source code</a> by
+        Carol Lua
+      </h6>
     </div>
-    <h6 class="open-source">
-      <a href="http://github.com/Lua8/weather-app" class="link"
-        >Open-source code</a
-      >
-      by Carol Lua
-    </h6>
     <script src="index.js"></script>
   </body>
 </html>
