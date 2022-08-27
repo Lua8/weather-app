@@ -63,8 +63,9 @@ body {
 .current-icon {
   font-size: 90px;
 }
-.description {
+.description:first-letter {
   font-size: 15px;
+  text-transform: capitalize;
 }
 .temperature {
   font-size: 95px;

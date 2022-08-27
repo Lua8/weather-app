@@ -7,8 +7,6 @@ function updateDate(date) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  console.log(minutes);
-
   let dayChange = date.getDay();
   let days = [
     "Sunday",
@@ -30,13 +28,21 @@ hours.innerHTML = updateDate(nowTime);
 
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
-  console.log(temperature);
   let fahrenheit = document.querySelector("#temperature");
   fahrenheit.innerHTML = temperature;
 
   let cityName = document.querySelector("#city");
   let cityOutput = response.data.name;
   cityName.innerHTML = cityOutput;
+
+  let description = document.querySelector(".description");
+  description.innerHTML = response.data.weather[0].description;
+
+  let icon = document.querySelector("#icon");
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 
   let humidity = response.data.main.humidity;
   let levelHumidity = document.querySelector("#humidity");
