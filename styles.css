@@ -96,7 +96,16 @@ div.col-2 {
 div.days {
   font-family: "Kiwi Maru", serif;
 }
-div.icon {
+div #icon {
   font-family: none;
   font-size: 35px;
+}
+
+div .active {
+  color: rgb(247, 242, 242);
+  cursor: default;
+}
+div .active:hover {
+  text-decoration: none;
+  cursor: default;
 }

@@ -27,7 +27,9 @@ let nowTime = new Date();
 hours.innerHTML = updateDate(nowTime);
 
 function showTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
+  fahrenheitTemperature = response.data.main.temp;
+
+  let temperature = Math.round(fahrenheitTemperature);
   let fahrenheit = document.querySelector("#temperature");
   fahrenheit.innerHTML = temperature;
 
@@ -80,10 +82,37 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
+function showCelsiusTemperature(event) {
+  event.preventDefault();
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+
+  let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
+  let fahrenheit = document.querySelector("#temperature");
+  fahrenheit.innerHTML = Math.round(celsiusTemperature);
+}
+
+function showFahrenheitTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+
+  let fahrenheit = document.querySelector("#temperature");
+  fahrenheit.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let fahrenheitTemperature = null;
+
 let cityInput = document.querySelector("#search-city");
 cityInput.addEventListener("submit", searchCity);
 
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemperature);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 
 cities("Ceres");
